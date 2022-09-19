@@ -1,0 +1,17 @@
+h1{
+    color : white;
+}
+
+body{
+    background-color: #1DB954;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.imgScale{
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+}

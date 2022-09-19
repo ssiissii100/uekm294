@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const password = document.getElementById("password");
+        const passwordval = document.getElementById("passwordval");
+        const passwordform = document.getElementById("passwordform");
+
+        passwordform.addEventListener("submit", (event) => { event.preventDefault();
+            if(password.value !== passwordval.value){
+                alert("Passwort stimmt nicht überein!");
+            }
+        });
+
+    })
+</script>
+<body>
+    <style>
+        label,input{
+            display: block;
+        }
+    </style>
+    <form id="passwordform">
+        <label>Passwort</label>
+        <input type="password" id="password" />
+        <label>Passwort bestätigen</label>
+        <input type="password" id="passwordval" />
+        <button type="submit" id="submit" >Senden</button>
+    </form>
+</body>
+</html>

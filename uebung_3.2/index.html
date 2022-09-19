@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const addressForm = document.getElementById("addressForm");
+        const zipInput = document.getElementById("zipInput");
+        let zips;
+
+        fetch("./zips.json").then((res) => res.json()).then((data) => zips = data);
+
+        addressForm.addEventListener("submit", (event) => { event.preventDefault();
+            new FormData(addressForm);
+        });
+
+        zipInput.addEventListener("blur", () => {
+          const placeData = zips.find((v) => v.zipcode === zipInput.value);
+          placeInput.value = placeData.place;
+        })
+
+    });
+    </script>
+</head>
+<body>
+    <style>
+        label,input{
+            display: block;
+        }
+    </style>
+
+    <form id="addressForm">
+        <label for="forenameInput">Vorname</label>
+        <input type="text" name="forename" id="forenameInput" />
+
+        <label for="surnameInput">Nachname</label>
+        <input type="text" name="surname" id="surnameInput" />
+
+        <label for="streetInput">Strasse</label>
+        <input type="text" name="street" id="streetInput" />
+
+        <label for="zipInput">Postleitzahl</label>
+        <input type="text" name="zip" id="zipInput" />
+
+        <label for="placeInput">Ort</label>
+        <input type="text" name="place" id="placeInput" />
+
+        <label for="cantonInput">Kanton</label>
+        <input type="text" name="canton" id="cantonInput" />
+
+        <button type="submit">Senden</button>
+</form>
+</body>
+
+</html>

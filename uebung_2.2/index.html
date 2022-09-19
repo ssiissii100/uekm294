@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const names = ["Franz", "Jenny", "Karen", "Joseph", "Richard", "Florenze"];
+    const stringNames = names.join(", ");
+    stringNames.lastIndexOf(",") = " und";
+    console.log(stringNames);
+    
+    const sortedNames = [...names];
+    sortedNames.sort();
+    console.log(sortedNames);
+
+    const nameUppercase = names.map(name => name.toLocaleUpperCase())
+    console.log(nameUppercase);
+
+    const alphabet = ["a","b","c","d","e","f","g","i", "h","1","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    let newAlphabet = [];
+
+    for(let i = 0; i < alphabet.length; i++){
+        let offset = (i+13)% alphabet.length;
+        newAlphabet += alphabet[offset];
+    }
+    console.log(newAlphabet);
+
+    let counter = 0;
+    for(let i = 0; i < alphabet.length; i++){
+        for(let j = 0; j < names.length; j++){
+            if(alphabet[i].toUpperCase() == names[j].charAt(0)){
+                counter++;  
+            }
+        }
+        console.log(alphabet[i] + ": " + counter);
+        counter = 0;
+    }
+</script>
+<body>
+    
+</body>
+</html>
